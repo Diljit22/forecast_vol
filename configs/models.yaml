@@ -1,0 +1,55 @@
+
+multi_asset:
+  enabled: true
+  correlation_window: 30       # Rolling window for cross-asset correlation
+  correlation_col: "log_return"
+  correlation_threshold: 0.2   # For GNN adjacency
+
+  hmm:
+    enabled: true
+    n_states: 3 # e.g. market is Calm, Normal, Crisis
+    covariance_type: "full" # full or diag
+    random_state: 42
+
+  gnn:
+    enabled: true
+    hidden_dim: 16
+    num_layers: 2
+    epochs: 50
+    lr: 1e-3
+    synergy_loss: "mse"  # or "none"/"contrastive", etc.
+
+deep_learning:
+  enabled: true
+  model_arch: "attention"       # options: "attention", "lstm", "cnn", ...
+  input_dim: 9
+  d_model: 16
+  n_tasks: 2
+  num_heads: 4
+  num_layers: 2                 # for deeper blocks or LSTM layers
+  dropout: 0.1
+  epochs: 5
+  batch_size: 32
+  learning_rate: 0.001
+  checkpoint_path: "artifacts/model_checkpoint.pth"
+  multi_resolution_input: false
+  concurrency: 2               
+
+stochastic:
+  enabled: true
+
+  # RFSV / Wavelet
+  wavelet_name: "haar"
+  wavelet_levels: 6
+  n_steps_sim: 100
+  random_restarts: 3
+
+  # GARCH toggles
+  use_garch: false
+  garch_params:
+    p: 1
+    q: 1
+
+  # Multi-scale fractal
+  multi_scale: true
+  fractal_scales: [2, 4, 8]

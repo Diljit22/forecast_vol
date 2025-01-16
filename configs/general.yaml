@@ -1,0 +1,42 @@
+cache:
+  enabled: true
+  metadata_dir: "artifacts/cache"
+  check_data_modtime: true
+
+stability:
+  eps: 1.0e-8
+
+logging:
+  version: 1
+  disable_existing_loggers: false
+
+  formatters:
+    standard:
+      format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+
+  handlers:
+    console:
+      class: logging.StreamHandler
+      level: DEBUG
+      formatter: standard
+      stream: ext://sys.stdout
+
+  root:
+    level: INFO
+    handlers:
+      - console
+
+  log_file: "artifacts/logs/project.log"
+
+debug:
+  enable_debug: true
+  skip_cross_asset: false
+  skip_rfsv: false
+
+plotting:
+  enabled: true
+  output_dir: "outputs/plots"
+  save_figs: true
+  correlation_heatmap: true
+  distribution_plots: false
+  interactive: false

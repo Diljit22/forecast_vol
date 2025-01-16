@@ -1,0 +1,53 @@
+[build-system]
+# Requires setuptools and wheel to build your package.
+requires = [
+    "setuptools>=61.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "intraday-vol-deep-learning"
+version = "0.1.0"
+description = "Intraday volatility deep learning pipeline."
+readme = "README.md"
+license = "MIT"
+
+authors = [
+  { name = "Diljit Singh", email = "my_name @ google's email service" }
+]
+
+keywords = ["deep-learning", "volatility", "finance", "time-series"]
+
+# Python version requirement
+requires-python = ">=3.9"
+
+# List core runtime dependencies here:
+dependencies = [
+  "numpy>=1.21",
+  "pandas>=1.3",
+  "scipy>=1.5",
+  "hmmlearn>=0.2.8",
+  "torch>=2.0.0",
+  "torch-geometric>=2.2.0",
+  "pywavelets>=1.1.1",  # for pywt
+  "fbm>=0.4.0",
+  "optuna>=3.0.0",
+  "scikit-learn>=1.0",
+  "seaborn>=0.11"
+]
+
+# If you want optional dependencies (e.g. for testing), you can add them like this:
+[project.optional-dependencies]
+test = [
+  "pytest>=6.0",
+  "pytest-cov>=2.12"
+]
+dev = [
+  "black>=23.0.0",
+  "flake8>=6.0.0"
+]
+
+[project.urls]
+"Source" = "https://github.com/your_user/forecast_vol"
+"Tracker" = "https://github.com/your_user/forecast_vol"

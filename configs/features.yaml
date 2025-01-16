@@ -1,0 +1,60 @@
+feature_engineering:
+  enabled: true
+
+  # Instrument Ticker and Type
+  add_ticker_is_etf: true
+
+  # If Prior and Next Days are Active Sessions
+  compute_active_nhood: true
+
+  # Time in msec since market open and until market close
+  compute_distance_open_close: true
+
+  # Close to Close returns
+  compute_returns: true
+
+  # Log Returns
+  compute_log_return: true
+  log_return_price_col: "close"
+
+  # Realized Variance
+  compute_realized_variance: true
+  rv_window: 5
+
+  # Bipower Variation
+  compute_bipower_variation: true
+  bpv_window: 5
+
+  # Parkinson Volatility
+  compute_parkinson_vol: true
+  parkinson_window: 30
+
+  # Garman Klass
+  compute_garman_klass: true
+  gk_window: 5
+
+  # Integrated Quartic Var
+  compute_integrated_quartic_var: true
+  iqv_window: 5
+
+  # Trade Intensity
+  compute_trade_intensity: true
+
+  # Vol-of-Vol
+  compute_vov: true
+  vov_window: 5
+  vov_col: "rv"
+
+look_back_features:
+  - compute_key: "compute_realized_variance"
+    window_key: "rv_window"
+  - compute_key: "compute_bipower_variation"
+    window_key: "bpv_window"
+  - compute_key: "compute_parkinson_vol"
+    window_key: "parkinson_window"
+  - compute_key: "compute_garman_klass"
+    window_key: "gk_window"
+  - compute_key: "compute_integrated_quartic_var"
+    window_key: "iqv_window"
+  - compute_key: "compute_vov"
+    window_key: "vov_window"
