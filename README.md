@@ -1,24 +1,21 @@
 # Intraday Volatility Deep Learning
-This repository contains an intraday volatility deep learning pipeline that processes high-frequency market data, extracts features, and trains various models
-(including LSTM, CNN, and Attention-based architectures).
-It also includes a multi-asset synergy module (e.g., GNNs, HMM-based regime detection) and a stochastic modeling module (e.g., GARCH, RFSV).
+This repository contains an intraday volatility deep learning pipeline that processes high-frequency market data, extracts features, and trains various models.
 
-# Features
-Data Processing and Preprocessing
-Merges raw CSV data by ticker, filters active sessions, resamples to 1-minute bars, and extracts features (e.g., returns, log returns, volatility measures).
+Makes extensive use of parallelization, multi-processing, and balances chunking vs vectorization to handle a large dataset.
 
-Multi-Asset Synergy
-Aligns multiple tickers, builds correlation graphs, and runs GNN-based embedding to capture cross-asset relationships.
+Attention-based architecture:
+  - FeedForward: a 2-layer MLP sub-layer used in each AttentionBlock
+  - AttentionBlock: multi-head self-attention + residual + layernorm + feed-forward
+  - AttentionPredictor: stacks multiple AttentionBlocks, plus final linear output.
 
-Stochastic Models
-Supports GARCH, multi-scale fractal analysis, and wavelet-based RFSV for volatility estimation.
+Implements GaussianHMM-based regime detection for each ticker's time-series data.
 
-Deep Learning Models
+Trains GNN (self-supervised) to add weights.
 
-LSTM
-CNN
-Attention
-Hyperparameter Tuning (Optuna)
+Multi-scale fractal dimension estimation using wavelet decomposition.
+GARCH(1,1) fitting approach via the arch
 
-Notes
-Still training the model! - it did well a smaller sample training set though. 
+Implements wavelet-based Hurst exponent estimation for Rough FSV,
+plus MLE fitting for (H, mu, sigma), and simulation.
+
+Performs advanced hyperparameter tuning via optuna.
