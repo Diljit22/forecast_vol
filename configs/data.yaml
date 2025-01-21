@@ -1,0 +1,24 @@
+data:
+  path_raw: "data/raw"
+  path_preprocessed: "data/intermediate/preprocessed.csv"
+  path_synergy: "data/intermediate/synergy_enriched.csv"
+  path_final: "data/final/enriched.csv"
+  stock_tickers: ["AAPL", "MSFT", "AMZN", "GOOGL", "META", "NVDA", "TSLA", "NFLX"]
+  etf_tickers: ["SPY", "QQQ", "VXX"]
+
+coverage:
+  start_date: "2023-01-01"
+  end_date: "2024-12-31"
+
+inference:
+  enabled: true
+  path_raw: "infernece_data/raw"
+  path_processed: "infernece_data/processed/enriched.csv"
+  root_dir: "inference_data"
+  predictions_subdir: "predictions"
+  concurrency: 2
+
+market_sessions:
+  path_exceptions_yaml: "data/exceptions.yaml"
+  path_exceptions_dict: "script_generated_files/market_exceptions.py"
+  path_market_hours: "script_generated_files/market_hours.py"

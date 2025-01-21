@@ -1,0 +1,22 @@
+deep_learning:
+  attention:
+    enabled: true
+    input_dim: null
+    d_model: 64
+    num_heads: 4
+    num_layers: 2
+    ff_dim: 128
+    dropout: 0.1
+    n_tasks: 1
+    epochs: 5
+    learning_rate: 0.001
+    checkpoint_path: "checkpoints/attention_final.pth"
+
+dataloader:
+  batch_size: 64
+  num_workers: 4
+
+hyperparameter_search:
+  enabled: true
+  n_trials: 10
+  timeout: 600

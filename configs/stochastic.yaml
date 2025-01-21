@@ -1,0 +1,21 @@
+stochastic:
+  enabled: true
+  output_path: "data/intermediate/synergy_stoch_enriched.csv"
+
+  # RFSV
+  wavelet_name: "haar"
+  wavelet_levels: 6
+  random_restarts: 3
+  n_steps_sim: 100
+
+  # GARCH
+  use_garch: true
+  # arch library is used
+
+  # Fractal
+  multi_scale: true
+  fractal_scales: [2, 4, 8]
+
+  hp_search:
+    enabled: true
+    n_trials: 10
