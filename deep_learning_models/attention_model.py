@@ -14,8 +14,7 @@ logger = logging.getLogger(__name__)
 
 class FeedForward(nn.Module):
     """
-    A small 2-layer feed-forward sub-layer used in each AttentionBlock.
-    Typically: Linear -> ReLU -> Dropout -> Linear -> Residual -> LayerNorm.
+    A 2-layer feed-forward sub-layer used in each AttentionBlock.
     """
     def __init__(self, d_model: int, ff_dim: int = 128, dropout: float = 0.1):
         super().__init__()
