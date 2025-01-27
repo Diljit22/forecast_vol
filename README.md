@@ -35,9 +35,9 @@ The pipeline handles:
 
 4. **End-to-End Pipeline**  
      - Load a final enriched CSV from disk.
+     - Split into `(train_ds, val_ds, test_ds)` with time-based partitioning.
      - Multi-asset Synergy is done.
      - Stochastic models are fitted.
-     - Split into `(train_ds, val_ds, test_ds)` with time-based partitioning.
      - Perform hyperparam search on `(train_ds, val_ds)`.
      - Retrain the **AttentionPredictor** with best hyperparams.
      - Evaluate on the test set (logging final MSE).
