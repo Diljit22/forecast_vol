@@ -48,9 +48,7 @@ Key Configuration Files
 - `configs/` contains information for all configurations.
 
 Windows Multiprocessing; when using spawn start method, you may see repeated logs about config merges.
-To reduce:
-- Call init_config() only in if __name__ == "__main__":.
-- Or set logging to WARN in child processes.
+To reduce set logging to WARN in child processes.
 
 Hyperparameter Tuning
 - By default, we set n_jobs=1 for Optuna to avoid errors with large data + Windows spawn.
