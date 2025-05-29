@@ -1,0 +1,4 @@
+# Note on data
+
+Data lives here but is .gitignored.  
+Run `make restrict` etc. after you download raw CSVs from Polygon.
