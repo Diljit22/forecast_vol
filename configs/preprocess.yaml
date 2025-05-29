@@ -1,0 +1,12 @@
+paths:
+  raw_root        : data/raw
+  calendar_json   : data/processed/nyse_2023-2024.json
+  restricted_out  : data/interim/restricted
+  resampled_out   : data/interim/resampled
+  interim_out     : data/interim/preprocessed.parquet
+  reports_dir     : reports/preprocess
+  artifacts_dir   : artifacts/preprocess
+
+params:
+  lookback         : 35
+  epsilon_percent  : 0.002

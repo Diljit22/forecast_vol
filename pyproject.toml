@@ -1,0 +1,86 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name            = "forecast_vol"
+version         = "0.1.0"
+description     = "Deep-learning pipeline for minute-level volatility forecasting."
+readme          = "README.md"
+license         = {text = "MIT"}
+requires-python = ">=3.13"
+
+authors  = [{name = "Diljit Singh", email = "DiljitSingh22@take_a_guess.com"}]
+keywords = ["deep-learning", "finance", "volatility"]
+
+dependencies = [
+  "arch==7.2.0",
+  "numpy==2.2.5",
+  "pandas==2.2.3",
+  "scipy==1.15.2",
+  "scikit-learn==1.6.1",
+  "torch==2.7.0",
+  "torch-geometric==2.4.0",
+  "hmmlearn==0.3.3",
+  "pywavelets==1.8.0",
+  "optuna==4.3.0",
+  "pyyaml==6.0.2",
+  "pydantic==2.11.3",
+  "matplotlib==3.10.1",
+  "tqdm==4.67.1",
+  "pyarrow==19.0.1",
+  "polars==1.27.1",
+]
+
+[project.optional-dependencies]
+test = ["pytest==8.3.5"]
+
+dev = [
+  "pytest==8.3.5",
+  "ruff==0.11.6",
+  "pre-commit==4.2.0",
+  "ipython==9.1.0",
+  "mypy==1.15.0",
+  "types-PyYAML==6.0.12.20250402",
+  "pandas-stubs==2.2.3.250308",
+  "types-pytz==2025.2.0.20250326",
+  "types-python-dateutil==2.9.0.20241206",
+]
+
+fast = [
+  "torch-sparse>=0.6.18 ; python_version >= '3.13'",
+  "pyg-lib>=0.4.0       ; python_version >= '3.13'",
+]
+
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where   = ["src"]
+include = ["forecast_vol*"]
+
+[tool.setuptools.package-data]
+forecast_vol = ["configs/**/*.yaml"]
+
+[tool.ruff]
+target-version = "py313"
+line-length    = 88
+lint.select    = ["E", "F", "I", "N", "UP", "B", "C4", "SIM", "NPY"]
+lint.ignore    = ["D213"]
+lint.pydocstyle.convention = "numpy"
+format.quote-style = "double"
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+plugins = ["pydantic.mypy"]
+mypy_path = "src"
+disable_error_code = [
+  "import-untyped","index","arg-type","misc",
+  "no-any-return","no-untyped-def","operator",
+  "type-arg","list-item","call-overload", "return-value",
+]
+[[tool.mypy.overrides]]
+module = ["yaml", "torch.*", "torch_geometric.*", "hmmlearn.*"]
+ignore_missing_imports = true

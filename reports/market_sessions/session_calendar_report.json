@@ -1,0 +1,9 @@
+{
+  "start_date": "2023-01-04",
+  "end_date": "2024-12-31",
+  "trading_days": 501,
+  "full_days": 496,
+  "half_days": 5,
+  "holidays": 20,
+  "skipped_weekends": 207
+}

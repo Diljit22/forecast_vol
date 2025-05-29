@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this toolkit, please cite it as below."
+title: "forecast_vol: Minute-level volatility forecasting"
+version: "0.1.0"
+license: "MIT"
+authors:
+  - family-names: Singh
+    given-names: Diljit
+date-released: 2025-04-30
+url: "https://github.com/diljit22/forecast_vol"

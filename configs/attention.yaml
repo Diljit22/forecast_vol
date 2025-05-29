@@ -1,0 +1,48 @@
+paths:
+  basic_parquet  : data/interim/preprocessed.parquet
+  stoch_parquet  : data/interim/stochastic.parquet
+  gnn_parquet    : data/interim/synergy.parquet
+  hmm_parquet    : data/interim/hmm.parquet
+  model_dir      : models/attention
+  reports_dir    : reports/attention
+  scaler_pkl     : artifacts/attention/std_scaler.pkl
+  checkpoint     : artifacts/attention/best_model.pt
+  best_params    : reports/attention/best_params.yaml
+  optuna_trials  : reports/attention/optuna_trials.csv
+
+data:
+  lookahead : 60
+
+split:
+  val_frac  : 0.15
+  test_frac : 0.10
+
+hpo:
+  n_trials      : 40
+  timeout       : 1800
+  search_space:
+    d_model     : [32, 64, 128]
+    ff_dim      : [64, 128, 256]
+    num_layers  : [1, 2, 3, 4]
+    num_heads   : [2, 4, 8]
+    dropout     : [0.0, 0.1, 0.2, 0.3]
+    lr_log      : [1e-4, 2e-3]
+    epochs      : [3, 5]
+
+attention:
+  input_window            : 120
+  d_model                 : 64
+  num_heads               : 4
+  num_layers              : 3
+  ff_dim                  : 128
+  dropout                 : 0.1
+  lr                      : 0.001
+  batch_size              : 256
+  epochs                  : 20
+  early_stopping_patience : 4
+  device                  : cpu
+
+final_train:
+  epochs : 20
+  batch  : 256
+  device : cpu

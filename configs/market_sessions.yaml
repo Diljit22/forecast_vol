@@ -1,0 +1,9 @@
+paths:
+  exceptions_yaml       : data/external/market_hours/exceptions.yaml
+  active_sessions_json  : data/processed/nyse_2023-2024.json
+  reports_dir           : reports/market_sessions
+  artifacts_dir         : artifacts/market_sessions
+
+params:
+  start_date            : "2023-01-04"
+  end_date              : "2024-12-31"

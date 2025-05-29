@@ -1,0 +1,13 @@
+paths:
+  hmm_out             : data/interim/hmm.parquet
+  synergy_out         : data/interim/synergy.parquet
+  reports_dir         : reports/synergy
+
+gnn:
+  correlation_window  : 50
+  epochs              : 100
+  device              : cpu
+  benches:
+      - SPY
+      - VXX
+      - QQQ

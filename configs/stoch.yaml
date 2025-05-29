@@ -1,0 +1,14 @@
+paths:
+  hmm_out         : data/interim/hmm.parquet
+  stoch_out       : data/interim/stochastic.parquet
+  reports_dir     : reports/stochastic
+
+params:
+  jobs  : 8
+  egarch:
+    max_retries : 2
+  fractal:
+    scales  : [2, 4, 8]
+    wavelet : haar
+  rfsf:
+    sub : 5

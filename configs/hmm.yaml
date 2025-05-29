@@ -1,0 +1,12 @@
+paths:
+  interim_out   : data/interim/preprocessed.parquet
+  hmm_out       : data/interim/hmm.parquet
+  artifacts_dir : artifacts/hmm
+  reports_dir   : reports/synergy
+
+hmm:
+  n_states        : 3
+  covariance_type : full
+  random_state    : 42
+  max_workers     : 8
+  vol_col         : rv
